@@ -412,6 +412,10 @@ body._lock {
     display: none;
 }
 
+.main__work {
+    margin-bottom: 50px;
+}
+
 .work__title {
     font-size: calc(34px + (48 + 48 * 0.7) * (100vw - 320px) / 1920);
     margin-bottom: 30px;
@@ -466,8 +470,83 @@ body._lock {
     display: none;
 }
 
+.main__client {
+    padding-top: 50px;
+    background: #F3F6F9;
+    border-radius: 30px;
+    margin-bottom: 50px;
+}
 
+.client__background_pc {
+    display: none;
+}
 
+.client__background_tel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.client__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.client__title {
+    font-weight: 400;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.client__text {
+    margin-bottom: 30px;
+    z-index: 2;
+}
+
+.clientCard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+    z-index: 2;
+}
+
+.clientCard__item {
+    max-width: 438px;
+    flex: 0 1 50%;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+
+.clientCard__innerItem {
+    padding: 10px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.clientCard__img {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    background: #F2F3F8;
+    border-radius: 20px;
+}
+
+.clientCard__title {
+    font-weight: 600;
+    font-size: calc(16px + (18 + 18 * 0.7) * (100vw - 320px) / 1920);
+    line-height: 28px;
+    color: #989EB1;
+}
 
 @media (max-width: 1159px) {
     .burger {
@@ -704,6 +783,20 @@ body._lock {
         height: auto;
     }
 
+    .client__text {
+        font-size: calc(16px + 18 * (100vw / 1920));
+    }
+
+
+    .workCard__nubmer {
+        font-size: 20px;
+    }
+
+    .clientCard__title {
+        font-weight: 400;
+        font-size: calc(16px + 18 * (100vw / 1920));
+    }
+
 }
 
 @media (min-width: 1024px) {
@@ -843,6 +936,58 @@ body._lock {
         right: 30px!important;
     }
 
+    .main__client {
+        margin-bottom: 150px;
+    }
+
+    .client__container {
+        padding-bottom: 20px;
+        flex-direction: row;
+    }
+
+    .client__title {
+        padding: 0 20px;
+        flex: 1 1 20%;
+        order: 1;
+    }
+
+    .client__text {
+        padding: 0 20px;
+        flex: 1 1 20%;
+        max-width: 400px;
+        order: 3;
+    }
+
+    .clientCard {
+        flex: 1 1 60%;
+        margin: 0 -16px;
+        order: 2;
+    }
+
+    .clientCard__item {
+        flex: 1 0 50%;
+        padding: 0 16px;
+        margin-bottom: 32px;
+    }
+
+    .client__background_tel {
+        display: none;
+    }
+
+    .client__background_pc {
+        display: block;
+        width: 70%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .clientCard__innerItem {
+        height: 200px;
+        padding: 15px;
+    }
+
 }
 
 @media (min-width: 1160px) {
@@ -935,7 +1080,24 @@ body._lock {
         font-size: 20px;
     }
 
+   
 
+
+}
+
+@media (min-width: 1600px) {
+    .clientCard__innerItem {
+        height: 438px;
+    }
+    .clientCard__img {
+        width: 136px;
+        height: 136px;
+    }
+
+    .clientCard__img svg {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 
