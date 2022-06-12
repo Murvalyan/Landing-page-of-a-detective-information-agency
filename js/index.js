@@ -2,6 +2,9 @@ const menu = document.querySelector('.burger')
 const headerNav = document.querySelector('.header__nav')
 const body = document.querySelector('body')
 const servicesCard__title = []
+const header = document.querySelector('.header')
+const navList = document.querySelectorAll('.nav__list')
+
 document.querySelectorAll('.servicesCard__title').forEach(item => {
 	servicesCard__title.push(item)
 })
@@ -10,6 +13,20 @@ menu.addEventListener('click', (e) => {
 	menu.classList.toggle('header__burger_active')
 	headerNav.classList.toggle('header__nav_active')
 	body.classList.toggle('_lock')
+})
+
+document.addEventListener('scroll', () => {
+	if (window.scrollY > 170) {
+	  header.classList.add('headerTransparent')
+	} else header.classList.remove('headerTransparent')
+})
+
+navList.forEach((elem) => {
+	elem.addEventListener('click', () => {
+		menu.classList.remove('header__burger_active')
+		headerNav.classList.remove('header__nav_active')
+		body.classList.remove('_lock')
+	})
 })
 
 const slider = new Splide('.splide', {
