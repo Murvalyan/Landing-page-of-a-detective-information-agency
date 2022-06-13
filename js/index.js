@@ -4,6 +4,10 @@ const body = document.querySelector('body')
 const servicesCard__title = []
 const header = document.querySelector('.header')
 const navList = document.querySelectorAll('.nav__list')
+const modal = document.querySelector('.popUp')
+const buttonExit = document.querySelector('.popUp__exit')
+const feedback = document.querySelectorAll('.feedback')
+const contact = document.querySelector('.contact')
 
 document.querySelectorAll('.servicesCard__title').forEach(item => {
 	servicesCard__title.push(item)
@@ -15,12 +19,6 @@ menu.addEventListener('click', (e) => {
 	body.classList.toggle('_lock')
 })
 
-document.addEventListener('scroll', () => {
-	if (window.scrollY > 170) {
-	  header.classList.add('headerTransparent')
-	} else header.classList.remove('headerTransparent')
-})
-
 navList.forEach((elem) => {
 	elem.addEventListener('click', () => {
 		menu.classList.remove('header__burger_active')
@@ -28,6 +26,40 @@ navList.forEach((elem) => {
 		body.classList.remove('_lock')
 	})
 })
+
+feedback.forEach(elem => {
+	if (!elem.classList.contains('contact__feedback')) {
+		elem.addEventListener('click', () => {
+			modal.style.left = '0'
+			body.classList.add('_lock')
+		})
+	}
+})
+
+buttonExit.addEventListener('click', () => {
+	modal.style.left = '-100%'
+	body.classList.remove('_lock')
+})
+
+document.querySelectorAll('a[href^="#"').forEach(link => {
+
+    link.addEventListener('click', function(e) {
+        e.preventDefault()
+
+        const href = this.getAttribute('href').substring(1)
+
+        const scrollTarget = document.getElementById(href)
+
+        const topOffset = 60
+        const elementPosition = scrollTarget.getBoundingClientRect().top
+        const offsetPosition = elementPosition - topOffset
+
+        window.scrollBy({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    });
+});
 
 const slider = new Splide('.splide', {
 	type: 'slide',
